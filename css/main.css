@@ -1,0 +1,46 @@
+#logo {
+  height: 35vh;
+}
+
+#target {
+  background: rgba(242,250,255,1);
+  background: -moz-linear-gradient(-45deg, rgba(242,250,255,1) 0%, rgba(168,227,240,1) 35%, rgba(65,168,191,1) 75%, rgba(14,122,158,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(242,250,255,1)), color-stop(35%, rgba(168,227,240,1)), color-stop(75%, rgba(65,168,191,1)), color-stop(100%, rgba(14,122,158,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(242,250,255,1) 0%, rgba(168,227,240,1) 35%, rgba(65,168,191,1) 75%, rgba(14,122,158,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(242,250,255,1) 0%, rgba(168,227,240,1) 35%, rgba(65,168,191,1) 75%, rgba(14,122,158,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(242,250,255,1) 0%, rgba(168,227,240,1) 35%, rgba(65,168,191,1) 75%, rgba(14,122,158,1) 100%);
+  background: linear-gradient(135deg, rgba(242,250,255,1) 0%, rgba(168,227,240,1) 35%, rgba(65,168,191,1) 75%, rgba(14,122,158,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2faff', endColorstr='#0e7a9e', GradientType=1 );
+  margin-top: 8vh;
+  border-radius: 3vh;
+}
+
+#form-target {
+  margin-top: 3vh;
+}
+
+#btn {
+margin-bottom: 3vh;
+}
+
+ 
+#logo-airpl {
+  margin-top: 6vh;
+}
+
+h1, h2 {
+  font-family: 'Gurajada', serif;
+}
+
+h1 {
+color: rgba(112, 108, 124, 0.753);
+}
+
+h2{
+  color: rgb(217, 222, 238);
+  text-shadow: 9px, 3px  black;
+}
+
+#airplane {
+  height: 60vh;
+}
