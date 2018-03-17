@@ -25,31 +25,26 @@
           </div>
           <!-- Form -->
           <div class="row col m7 center" id="form-target"> 
-              <form class="indigo lighten-5 z-depth-2 center  col m12">
-              <div class="input-field center">
-                <select class="center">
-                    <option value="" disabled selected>Visa o MasterCard</option>
-                    <option value="MasterCard">MasterCard</option>
-                    <option value="Validate">Visa</option>
-                </select>
-              </div> 
+            <form id="white">
               <div class="form-group">
-               <label for="cn">Número de tarjeta</label>
-               <input type="number" id="cn" name="cn" />
+                  <label for="cn">Número de tarjeta</label>
+                  <input id="cn" name="cn" maxlength="16" required/>
               </div>
               <div class="form-group">
-               <label for="exp">Fecha de vencimiento</label>
-               <input type="number" id="exp" name="exp"/>
+                  <label for="month">Mes de vencimiento</label>
+                  <input id="month-val" name="exp-month" maxlength="2" required/>
+                  <label for="year">Año de vencimiento</label>
+                  <input id="year-val" name="exp-year" maxlength="2" required/>
               </div>
               <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="number" id="cvv" name="cvv"/>
+                  <label for="cvv">CVV</label>
+                  <input id="cvv" name="cvv" maxlength="3" required/>
               </div>
               <div class="form-group">
-               <label for="name">Nombre completo</label>
-               <input id="name" name="name"/>
+                  <label for="name">Nombre completo</label>
+                  <input id="name-val" type="text" name="name" pattern="[A-Za-z ]{2,30}" required/>
               </div>
-               <input id="btn" class="pulse btn" type="submit" value="Pagar" />
+                <input id="btn" class="pulse btn blue" type="submit" value="Pagar" />
             </form>
            </div>
           </div>

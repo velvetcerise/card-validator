@@ -1,93 +1,112 @@
 const form = document.querySelector("form");
-let array = Array.from(form)
-//console.log(array); Obtenemos los elementos de form como array
+
+const name = element => {
+    let Nval = element.value;
+    if(Nval.length <= 30){
+        element.className = "validos";
+        return true;
+    }else{
+        element.className = "invalido";  
+    }
+    console.log("name");
+}
+
+//Caducidad tarjeta
+const cvv = element =>{
+    let cvvVal = parseInt(element.value);
+    if(cvvVal > 100){
+        element.className = "validos";
+        return true;
+    }else{
+        element.className = "invalido";
+        return false
+    }
+}
+
+//Validación año
+const year = element =>{
+    let yearVal = parseInt(element.value);
+    if(yearVal >= 18 && yearVal <= 25){
+        element.className = "validos";
+        return true;
+    }else{
+        element.className = "invalido";
+        return false
+    }
+}
+
+//Validación mes
+const month= element =>{
+    let monthVal = parseInt(element.value);
+    if(monthVal <= 12){
+        element.className = "valido";
+        return true;
+    }else{
+        element.className = "invalido";
+        return false
+    }
+}
+
+
+//Validación algoritmo lunh
+const lunh = element => {
+    let total = 0;
+    let cardNumberVal = Array.from(element.value);
+    let numberArray = cardNumberVal.map(num => { return Number(num); }).reverse();
+    //iterar para obtener mis numeros pares
+    numberArray.forEach((first, index) =>{
+      if (index % 2 != 0) { 
+        let even = first * 2;
+        if (even > 9) { 
+            even = even.toString();
+            let evenFirst = Number(even[0]);
+            let evenTwo = Number(even[1]);
+            let sumEvens =  evenFirst + evenTwo; //Agregarlos a la suma
+            total = total + sumEvens; 
+            } else {
+                total = total + even;
+                }
+            } else { 
+        total = total + first;
+        }
+    });
+
+
+  if (total % 10 === 0) { 
+    element.className = 'valido'
+    return true;
+    } else {
+    element.className = 'invalido'
+    }
+  }
+
+
+
+const validateCardDetails = element => {
+
+    let cardArray = Array.from(form);
+    //escribe tu código aqui
+  //Obteniendo inputs por separado
+    let cardNumb = cardArray[0];
+    let cardMonth = cardArray[1];
+    let cardExpYear = cardArray[2];
+    let cardCvv = cardArray[3];
+    let cardName = cardArray[4];
+
+   if(lunh(cardNumb) && name(cardName) && cvv(cardCvv) && month(cardMonth)  && year(cardExpYear)){
+       return true;
+        }else{
+        return false;
+        } 
+  }
 
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  if (validateCardDetails(form)===true) {
-    console.log("datos válido... enviar...");
+  if (validateCardDetails(form)) {
+    console.log("datos válidados");
   } else {
     console.log("datos inválidos");
-    alert('Los datos son inválidos');
   }
 });
 
-/*getting value*/
-
-
-function validateCardDetails(element) {
-  //escribe tu código aqui
-
- 
-   const valueName = document.getElementById('name').value;
-   const valueCard = document.getElementById('cn').value;
-   const valueExp = document.getElementById('exp').value;
-   const valueCvv = document.getElementById('cvv').value;
-    
-    console.log(valueCard);
-    console.log(valueExp);
-    console.log(valueCvv);
-
-  let total = array.map((getArr) => {
-    //arrojando nuevo array con los datos del input
-    return getArr.value;
-  });
- console.log(total);
-}  
-  /*var valueCard = total.filter()*/
-
-  //validando Fecha de expedición
-
-
-  /*
-function checkLuhn(input) {
-  var sum = 0;
-  var numdigits = input.length;
-  var parity = numdigits % 2;
-  for(var i=0; i < numdigits; i++) {
-      var digit = parseInt(input.charAt(i))
-      if(i % 2 == parity) digit *= 2;
-      if(digit > 9) digit -= 9;
-      sum += digit;
-  }
-  return (sum % 10) == 0;
-};
-function detectCard(input) {
-  var typeTest = 'u',
-      ltest1 = 16,
-      ltest2 = 16;
-  if(/^4/.test(input)){
-      typeTest = 'v';
-      ltest1 = 13;
-  } else if (/^5[1-5]/.test(input)){
-      typeTest = 'm';
-  } else if (/^3[4-7]/.test(input)){
-      typeTest = 'a';
-      ltest1 = 15;
- ltest2 = 15;
-} else if(/^6(011|4[4-9]|5)/.test(input)){
-      typeTest = 'd';
-  }
-  return [typeTest,ltest1,ltest2];
-}
-
-
-$('input.cc').keyup(function(){
-  var val = this.value,
-   val = val.replace(/[^0-9]/g, ''),
-      detected = detectCard(val),
-      errorClass = '',
-     luhnCheck = checkLuhn(val),
-      valueCheck = (val.length == detected[1] || val.length == detected[2]);
-console.log(valueCheck);
-  if(luhnCheck && valueCheck) {
-      errorClass = 'verified';
-  } else if(valueCheck || val.length > detected[2]) {
-      errorClass = 'error';
-}
-
-  $(this).attr('class', 'cc ' + detected[0] + ' ' + errorClass);
-});
-
-*/
