@@ -1,4 +1,17 @@
-# Valida datos de tarjetas de crédito
+# TARJETA DE CRÉDITO VÁLIDA
+
+Después de familiarizarnos con ES6, iniciamos este proyecto, donde el objetivo es crear un sitio que pida el número de una tarjeta de crédito y confirme su validez según el algoritmo de Luhn. 
+
+
+![muedtra](https://raw.githubusercontent.com/velvetcerise/card-validator/master/assets/images/validacion.png)
+
+![valdación](https://raw.githubusercontent.com/velvetcerise/card-validator/master/assets/images/val2.png)
+Los datos de la validación se muestran en la consola.
+
+
+
+# Instrucciones
+## Valida datos de tarjetas de crédito
 
 * **Track:** _Common Core_
 * **Curso:** _JS Deep Dive: Crea tu propia librería usando JavaScript_
